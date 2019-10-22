@@ -20,35 +20,35 @@
 
 (def snake-case-keys-tests
   {:FOO-BAR {:nested {:nested-2 "foo"}}
-    :not-so-nested "wow"
-    "strings-work" "working"
-    "arrays-too"
-    [{:working-key 20}
-     {:another-working-key 10}]
-    :values-are-safe "je-suis-safe"})
+   :not-so-nested "wow"
+   "strings-work" "working"
+   "arrays-too"
+   [{:working-key 20}
+    {:another-working-key 10}]
+   :values-are-safe "je-suis-safe"})
 
 (def kebab-case-keys-tests
   {:FOO_BAR {:nested {:nested_2 "foo"}}
-    :not_so_nested "wow"
-    "strings_work" "working"
-    "arrays_too"
-    [{:working_key 20}
-     {:another_working_key 10}]
-    :values_are_safe "je_suis_safe"})
+   :not_so_nested "wow"
+   "strings_work" "working"
+   "arrays_too"
+   [{:working_key 20}
+    {:another_working_key 10}]
+   :values_are_safe "je_suis_safe"})
 
 (deftest snake-case-test
   (testing "snake cases strings and keywords"
     (mapv
-      (fn [[test-case expect]]
-        (is (= expect (to-snake-case test-case))))
-      snake-case-tests)))
+     (fn [[test-case expect]]
+       (is (= expect (to-snake-case test-case))))
+     snake-case-tests)))
 
 (deftest kebab-case-test
   (testing "kebab cases strings and keywords"
     (mapv
-      (fn [[test-case expect]]
-        (is (= expect (to-kebab-case test-case))))
-      kebab-case-tests)))
+     (fn [[test-case expect]]
+       (is (= expect (to-kebab-case test-case))))
+     kebab-case-tests)))
 
 (deftest snakeify-keys-test
   (testing "snake cases all keys"
@@ -58,8 +58,8 @@
             "arrays_too"
             [{"working_key" 20}
              {"another_working_key" 10}]
-             "values_are_safe" "je-suis-safe"}
-            (snakeify-keys snake-case-keys-tests))))
+            "values_are_safe" "je-suis-safe"}
+           (snakeify-keys snake-case-keys-tests))))
   (testing "snake cases and applies passed fn"
     (is (= {:FOO_BAR {:nested {:nested_2 "foo"}}
             :not_so_nested "wow"
@@ -67,8 +67,8 @@
             :arrays_too
             [{:working_key 20}
              {:another_working_key 10}]
-             :values_are_safe "je-suis-safe"}
-            (snakeify-keys snake-case-keys-tests keyword)))))
+            :values_are_safe "je-suis-safe"}
+           (snakeify-keys snake-case-keys-tests keyword)))))
 
 (deftest kebabify-keys-test
   (testing "kebabifies cases all keys"
@@ -78,8 +78,8 @@
             "arrays-too"
             [{"working-key" 20}
              {"another-working-key" 10}]
-             "values-are-safe" "je_suis_safe"}
-            (kebabify-keys kebab-case-keys-tests))))
+            "values-are-safe" "je_suis_safe"}
+           (kebabify-keys kebab-case-keys-tests))))
   (testing "kebabifies and applies passed fn"
     (is (= {:FOO-BAR {:nested {:nested-2 "foo"}}
             :not-so-nested "wow"
@@ -87,5 +87,5 @@
             :arrays-too
             [{:working-key 20}
              {:another-working-key 10}]
-             :values-are-safe "je_suis_safe"}
-            (kebabify-keys kebab-case-keys-tests keyword)))))
+            :values-are-safe "je_suis_safe"}
+           (kebabify-keys kebab-case-keys-tests keyword)))))

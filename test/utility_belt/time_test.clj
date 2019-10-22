@@ -1,8 +1,8 @@
 (ns utility-belt.time-test
   (:require
-   [   utility-belt.time :refer :all]
+   [utility-belt.time :refer :all]
    [clojure.test :refer :all]
-    [clj-time.core :as time])
+   [clj-time.core :as time])
   (:import (java.sql Timestamp)))
 
 (deftest sql-data-test

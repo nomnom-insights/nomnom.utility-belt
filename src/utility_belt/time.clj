@@ -60,8 +60,8 @@
   (let [datetime (->date-time date)
         start-date (time/with-time-at-start-of-day datetime)
         end-day (-> start-date
-                  (time/plus (time/days 1))
-                  (time/minus (time/millis 1)))
+                    (time/plus (time/days 1))
+                    (time/minus (time/millis 1)))
         now (now)]
     ;; ensure end-day is not in future
     (if (time/before? now end-day)
