@@ -39,3 +39,11 @@ You an pass the address to bind to if you need more control:
 (def system
   {:nrepl-server (utility-belt.component.nrepl/create {:port 23211 :bind-to "127.0.0.1"})})
 ```
+
+# Authors
+
+<sup>In alphabetical order</sup>
+
+- [Afonso Tsukamoto](https://github.com/AfonsoTsukamoto)
+- [Łukasz Korecki](https://github.com/lukaszkorecki)
+- [Marketa Adamova](https://github.com/MarketaAdamova)
