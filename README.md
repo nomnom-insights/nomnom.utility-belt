@@ -1,5 +1,9 @@
 # utility-belt
 
+[![Clojars Project](https://img.shields.io/clojars/v/nomnom/utility-belt.svg)](https://clojars.org/nomnom/utility-belt)
+
+[![CircleCI](https://circleci.com/gh/nomnom-insights/nomnom.utility-belt.svg?style=svg)](https://circleci.com/gh/nomnom-insights/nomnom.utility-belt)
+
 > Although seemingly unremarkable in appearance, the utility belt is one of Batman's most important tools in fighting crime.
 
 
