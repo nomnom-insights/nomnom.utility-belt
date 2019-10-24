@@ -15,7 +15,7 @@ Currently it has:
 - `utility-belt.time` - common functions for date and time calculations, you need to pull in `clj-time` if you need to use those
 - `utilit-belt.conv` - type conversions (string to int, int to string, etc)
 - `utlity-belt.component` - small utils which make working with Stuart Sierra's Component a bit easier
-
+- `utility-belt.map-keys` - easy transformations of map keys between kebab and snake case
 
 ## nREPL component
 

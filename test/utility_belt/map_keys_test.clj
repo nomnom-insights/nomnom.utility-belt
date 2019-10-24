@@ -89,3 +89,24 @@
              {:another-working-key 10}]
             :values-are-safe "je_suis_safe"}
            (kebabify-keys kebab-case-keys-tests keyword)))))
+
+(deftest keywordized-versions
+  (testing "mmm kebab"
+    (let [kebab-keywords (kebabify-keys-kw kebab-case-keys-tests)]
+      (is (= {:FOO-BAR {:nested {:nested-2 "foo"}}
+              :not-so-nested "wow"
+              :strings-work "working"
+              :arrays-too
+              [{:working-key 20}
+               {:another-working-key 10}]
+              :values-are-safe "je_suis_safe"}
+             kebab-keywords))))
+  (testing "ahhh, snakes"
+    (is (= {:FOO_BAR {:nested {:nested_2 "foo"}}
+            :not_so_nested "wow"
+            :strings_work "working"
+            :arrays_too
+            [{:working_key 20}
+             {:another_working_key 10}]
+            :values_are_safe "je-suis-safe"}
+           (snakeify-keys-kw snake-case-keys-tests)))))

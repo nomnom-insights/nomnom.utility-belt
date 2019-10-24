@@ -33,3 +33,14 @@
   ([m post-fn]
    (convert-keys (comp post-fn to-snake-case) m)))
 
+(defn
+  kebabify-keys-kw
+  "Like kebabify-keys but keys end up being keywords"
+  [m]
+  (kebabify-keys m keyword))
+
+(defn
+  snakeify-keys-kw
+  "Like snakeify-keys but keys end up being keywords"
+  [m]
+  (snakeify-keys m keyword))
