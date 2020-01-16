@@ -30,7 +30,7 @@ Micro wrapper around nREPL server, as easy to use as passing the port number.
 ```clojure
 
 (def system
-  {:nrepl-server (utility-belt.component.nrepl/create {:port 23211})})
+  {:nrepl-server (utility-belt.component.nrepl/create 23211)})
 
 ```
 
@@ -41,7 +41,7 @@ You an pass the address to bind to if you need more control:
 
 ```clojure
 (def system
-  {:nrepl-server (utility-belt.component.nrepl/create {:port 23211 :bind-to "127.0.0.1"})})
+  {:nrepl-server (utility-belt.component.nrepl/create 23211"127.0.0.1")})
 ```
 
 # Authors
