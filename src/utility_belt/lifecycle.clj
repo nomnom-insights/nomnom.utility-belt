@@ -9,14 +9,12 @@
   [name hook-fn]
   (swap! hooks assoc name hook-fn))
 
-(defn- run-registerd-hooks []
+(defn- run-registered-hooks []
   (for [[name hook-fn] @hooks]
     (log/infof "shutdown-hook=%s" name (hook-fn))))
 
 (defn install-shutdown-hooks!
-  "Install the shutdown handler, which will:
-  - run any registerd shutdown hooks
-  - call shutdown-agents"
+  "Install the shutdown handler, which will run any registered shutdown hooks."
   []
   (.addShutdownHook (Runtime/getRuntime)
-                    (Thread. ^Runnable run-registerd-hooks)))
+                    (Thread. ^Runnable run-registered-hooks)))
