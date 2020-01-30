@@ -13,7 +13,7 @@
   (for [[name hook-fn] @hooks]
     (log/infof "shutdown-hook=%s" name (hook-fn))))
 
-(defn install-shutdown-hook!
+(defn install-shutdown-hooks!
   "Install the shutdown handler, which will:
   - run any registerd shutdown hooks
   - call shutdown-agents"

@@ -61,7 +61,7 @@ You an pass the address to bind to if you need more control:
 (def -main []
   (life/register-shutdown-hook :stop-system #(component/stop @system))
   (life/register-shutdown-hook :goodbye #(println "BYYYYEEEE 👋"))
-  (life/install-shutdown-hook!)
+  (life/install-shutdown-hooks!)
   (reset! system (component/start (app.system/create))))
 ```
 
