@@ -1,7 +1,7 @@
 (ns utility-belt.lifecycle
   (:require [clojure.tools.logging :as log]))
 
-(def ^:private hooks (atom {}))
+(def ^:private hooks (atom {:shutdown-agents shutdown-agents}))
 
 (defn register-shutdown-hook
   "Add a function to run when the application *gracefully* shuts down.
@@ -19,6 +19,4 @@
   - call shutdown-agents"
   []
   (.addShutdownHook (Runtime/getRuntime)
-                    (Thread. ^Runnable (fn shutdown-hook-runner []
-                                         (run-registerd-hooks)
-                                         (shutdown-agents)))))
+                    (Thread. ^Runnable run-registerd-hooks)))
