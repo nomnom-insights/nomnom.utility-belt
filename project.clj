@@ -12,5 +12,5 @@
              {:dependencies [[cheshire "5.9.0"]
                              [com.stuartsierra/component "0.4.0"]
                              [org.clojure/tools.logging "0.5.0"]
-                             [org.clojure/java.jdbc "0.7.11"] ;; FIXME
+                             [org.clojure/java.jdbc "0.7.11"] ;; TODO - remove this once, nomnom. utility-belt.sql is stable
                              [clj-time "0.15.2"]]}})
