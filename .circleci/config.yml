@@ -26,3 +26,5 @@ jobs:
 
       - run: |
           ./script/ci-test
+          # verify that shutdown hook created the file
+          test -e /tmp/ut-test-file

@@ -20,6 +20,7 @@ Currently it has:
 - `utilit-belt.conv` - type conversions (string to int, int to string, etc)
 - `utlity-belt.component` - small utils which make working with Stuart Sierra's Component a bit easier
 - `utility-belt.map-keys` - easy transformations of map keys between kebab and snake case
+- `utility-belt.lifecycle` - helpers to manage Clojure application lifecycle (registering shutdown hooks etc)
 
 ## nREPL component
 
@@ -42,6 +43,26 @@ You an pass the address to bind to if you need more control:
 ```clojure
 (def system
   {:nrepl-server (utility-belt.component.nrepl/create 23211"127.0.0.1")})
+```
+
+# Lifecycle hooks
+
+`utility-belt.lifecycle` provides a set of helpers to manage application lifecycle. Best used if you're using Component. Example:
+
+```clojure
+
+(ns app.core
+  (:require [app.system]
+            [com.stuartsierra.component :as component]
+            [utility-belt.lifecycle :as life]))
+
+(def system (atom nil))
+
+(def -main []
+  (life/register-shutdown-hook :stop-system #(component/stop @system))
+  (life/register-shutdown-hook :goodbye #(println "BYYYYEEEE 👋"))
+  (life/install-shutdown-hooks!)
+  (reset! system (component/start (app.system/create))))
 ```
 
 # Authors
