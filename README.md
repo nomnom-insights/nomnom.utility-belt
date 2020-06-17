@@ -37,7 +37,7 @@ Micro wrapper around nREPL server, as easy to use as passing the port number.
 
 :raising_hand: Note that the server by default binds to `0.0.0.0`
 
-You an pass the address to bind to if you need more control:
+You can pass the address to bind to if you need more control:
 
 
 ```clojure
@@ -47,7 +47,9 @@ You an pass the address to bind to if you need more control:
 
 # Lifecycle hooks
 
-`utility-belt.lifecycle` provides a set of helpers to manage application lifecycle. Best used if you're using Component. Example:
+`utility-belt.lifecycle` provides a set of helpers to manage application lifecycle. Best used if you're using Component. The  use case is to add graceful shutdown capabilities to long lived applications, and handle things such as stopping the component system during application shutdown.
+
+Example:
 
 ```clojure
 
