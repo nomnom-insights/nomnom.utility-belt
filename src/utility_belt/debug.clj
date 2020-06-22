@@ -17,11 +17,11 @@
 
 (defmacro log-time
   "Like time+ but uses underlying logger facility."
-  [tag body]
+  [level tag body]
   `(let [state# (atom nil)]
-     (log/debugf "tag=%s start"  ~tag)
+     (log/logf ~level "tag=%s start"  ~tag)
      (let [elapsed#  (with-out-str
                        (time (reset! state# (do ~body))))]
-       (log/debugf "tag=%s %s" ~tag elapsed#))
-     (log/debugf "tag=%s end"  ~tag)
+       (log/logf ~level "tag=%s %s" ~tag elapsed#))
+     (log/logf ~level "tag=%s end"  ~tag)
      (deref state#)))

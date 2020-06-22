@@ -27,8 +27,8 @@
                   (re-find #".+:test.+Elapsed time.+" (second out))))))))
     (testing "log-time"
       (is (= :fun-fun-fun
-             (debug/log-time :test (slow-fun))))
+             (debug/log-time :info :test (slow-fun))))
       (log.test/with-log
-        (debug/log-time :test (slow-fun))
+        (debug/log-time :debug :test (slow-fun))
         (log.test/logged? *ns* :debug "tag=:test start")
         (log.test/logged? *ns* :debug "tag=:test end")))))
