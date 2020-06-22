@@ -1,5 +1,7 @@
 (ns utility-belt.component
-  (:require [com.stuartsierra.component]))
+  (:require
+    [com.stuartsierra.component]))
+
 
 (defn deps
   "Converts a mixed list of dependencies into a
@@ -14,10 +16,11 @@
                     [x x]))
                 dependencies)))
 
+
 (defn using+
   "Like component/using but accepts a mixed list of component dependencies. See +utility-belt.component/deps+.
   (using+ (some-component/create) [ :a :b {:c :d}])"
   [component dependencies-list]
   (com.stuartsierra.component/using
-   component
-   (deps dependencies-list)))
+    component
+    (deps dependencies-list)))

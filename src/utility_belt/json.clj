@@ -1,12 +1,16 @@
 (ns utility-belt.json
-  (:require [cheshire.generate :as json.generate]
-            [clj-time.jdbc]
-            [clj-time.coerce :as coerce])
+  (:require
+    [cheshire.generate :as json.generate]
+    [clj-time.coerce :as coerce]
+    [clj-time.jdbc])
   (:import
-   (org.joda.time DateTime)
-   (com.fasterxml.jackson.core.json WriterBasedJsonGenerator)))
+    (com.fasterxml.jackson.core.json
+      WriterBasedJsonGenerator)
+    (org.joda.time
+      DateTime)))
+
 
 (json.generate/add-encoder
- DateTime
- (fn [data jsonGenerator]
-   (.writeString ^WriterBasedJsonGenerator jsonGenerator ^String (coerce/to-string ^DateTime data))))
+  DateTime
+  (fn [data jsonGenerator]
+    (.writeString ^WriterBasedJsonGenerator jsonGenerator ^String (coerce/to-string ^DateTime data))))

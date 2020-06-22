@@ -1,9 +1,12 @@
 (ns utility-belt.lifecycle-test
-  (:require [utility-belt.lifecycle :as lc]
-            [clojure.java.io :as io]
-            [clojure.test :refer [deftest is testing]]))
+  (:require
+    [clojure.java.io :as io]
+    [clojure.test :refer [deftest is testing]]
+    [utility-belt.lifecycle :as lc]))
+
 
 (def test-file (io/file "/tmp/ut-test-file"))
+
 
 (deftest shutdown-outer
   (testing "should crate a file on exit"

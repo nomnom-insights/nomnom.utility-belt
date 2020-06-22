@@ -1,7 +1,7 @@
 (ns utility-belt.validation-test
   (:require
-   [clojure.test :refer [is deftest testing]]
-   [utility-belt.validation :as validation]))
+    [clojure.test :refer [is deftest testing]]
+    [utility-belt.validation :as validation]))
 
 
 (deftest email-validation-and-extraction

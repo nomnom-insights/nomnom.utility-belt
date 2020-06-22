@@ -1,7 +1,9 @@
 (ns utility-belt.component.nrepl
-  (:require [nrepl.server :refer [start-server stop-server]]
-            [clojure.tools.logging :as log]
-            [com.stuartsierra.component :as component]))
+  (:require
+    [clojure.tools.logging :as log]
+    [com.stuartsierra.component :as component]
+    [nrepl.server :refer [start-server stop-server]]))
+
 
 (defrecord ReplServer [port bind-to server]
   component/Lifecycle
@@ -15,6 +17,7 @@
         (stop-server server)
         (assoc this :server nil))
       this)))
+
 
 (defn create
   ([port]

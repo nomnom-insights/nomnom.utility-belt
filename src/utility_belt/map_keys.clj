@@ -1,12 +1,16 @@
 (ns utility-belt.map-keys
-  (:require [clojure.walk]
-            [clojure.string :as str]))
+  (:require
+    [clojure.string :as str]
+    [clojure.walk]))
+
 
 (defn- change-char [k from to]
   (-> k name (str/replace from to)))
 
+
 (defn to-kebab-case [k]
   (change-char k \_ \-))
+
 
 (defn to-snake-case [k]
   (change-char k \- \_))
@@ -19,12 +23,14 @@
     ;; only apply to maps
     (clojure.walk/postwalk (fn [x] (if (map? x) (into {} (map f x)) x)) m)))
 
+
 (defn kebabify-keys
   "Converts keys from snake case to kebab case"
   ([m]
    (kebabify-keys m identity))
   ([m post-fn]
    (convert-keys (comp post-fn to-kebab-case) m)))
+
 
 (defn snakeify-keys
   "Converts keys from kebab case to snake case"
@@ -33,11 +39,13 @@
   ([m post-fn]
    (convert-keys (comp post-fn to-snake-case) m)))
 
+
 (defn
   kebabify-keys-kw
   "Like kebabify-keys but keys end up being keywords"
   [m]
   (kebabify-keys m keyword))
+
 
 (defn
   snakeify-keys-kw

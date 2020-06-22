@@ -1,9 +1,12 @@
 (ns utility-belt.time-test
   (:require
-   [utility-belt.time :as t]
-   [clojure.test :refer [deftest is testing]]
-   [clj-time.core :as time])
-  (:import (java.sql Timestamp)))
+    [clj-time.core :as time]
+    [clojure.test :refer [deftest is testing]]
+    [utility-belt.time :as t])
+  (:import
+    (java.sql
+      Timestamp)))
+
 
 (deftest sql-data-test
   (testing "convert to/form sql date")
@@ -12,9 +15,11 @@
     (is (instance? Timestamp sql-date))
     (is (time/equal? date (t/from-sql-date sql-date)))))
 
+
 (deftest to-seconds-test
   (testing "convert datetime string to UTF seconds"
     (is (= 3601 (t/to-seconds "1970-01-01 01:00:01")))))
+
 
 (deftest end-of-day-time-test
   (with-redefs [t/now (fn [] (t/->date-time "2016-12-31T00:01"))]

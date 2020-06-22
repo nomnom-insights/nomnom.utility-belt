@@ -1,6 +1,8 @@
 (ns utility-belt.conv-test
-  (:require [clojure.test :refer [deftest is testing]]
-            [utility-belt.conv :as conv]))
+  (:require
+    [clojure.test :refer [deftest is testing]]
+    [utility-belt.conv :as conv]))
+
 
 (deftest simple-conversions
   (testing "simple conversions"
