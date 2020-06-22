@@ -1,6 +1,6 @@
 (ns utility-belt.map-keys-test
-  (:require [clojure.test :refer :all]
-            [utility-belt.map-keys :refer :all]))
+  (:require [clojure.test :refer [deftest is testing]]
+            [utility-belt.map-keys :as map-keys]))
 
 (def snake-case-tests
   [["FOO-BAR" "FOO_BAR"]
@@ -40,14 +40,14 @@
   (testing "snake cases strings and keywords"
     (mapv
      (fn [[test-case expect]]
-       (is (= expect (to-snake-case test-case))))
+       (is (= expect (map-keys/to-snake-case test-case))))
      snake-case-tests)))
 
 (deftest kebab-case-test
   (testing "kebab cases strings and keywords"
     (mapv
      (fn [[test-case expect]]
-       (is (= expect (to-kebab-case test-case))))
+       (is (= expect (map-keys/to-kebab-case test-case))))
      kebab-case-tests)))
 
 (deftest snakeify-keys-test
@@ -59,7 +59,7 @@
             [{"working_key" 20}
              {"another_working_key" 10}]
             "values_are_safe" "je-suis-safe"}
-           (snakeify-keys snake-case-keys-tests))))
+           (map-keys/snakeify-keys snake-case-keys-tests))))
   (testing "snake cases and applies passed fn"
     (is (= {:FOO_BAR {:nested {:nested_2 "foo"}}
             :not_so_nested "wow"
@@ -68,7 +68,7 @@
             [{:working_key 20}
              {:another_working_key 10}]
             :values_are_safe "je-suis-safe"}
-           (snakeify-keys snake-case-keys-tests keyword)))))
+           (map-keys/snakeify-keys snake-case-keys-tests keyword)))))
 
 (deftest kebabify-keys-test
   (testing "kebabifies cases all keys"
@@ -79,7 +79,7 @@
             [{"working-key" 20}
              {"another-working-key" 10}]
             "values-are-safe" "je_suis_safe"}
-           (kebabify-keys kebab-case-keys-tests))))
+           (map-keys/kebabify-keys kebab-case-keys-tests))))
   (testing "kebabifies and applies passed fn"
     (is (= {:FOO-BAR {:nested {:nested-2 "foo"}}
             :not-so-nested "wow"
@@ -88,11 +88,11 @@
             [{:working-key 20}
              {:another-working-key 10}]
             :values-are-safe "je_suis_safe"}
-           (kebabify-keys kebab-case-keys-tests keyword)))))
+           (map-keys/kebabify-keys kebab-case-keys-tests keyword)))))
 
 (deftest keywordized-versions
   (testing "mmm kebab"
-    (let [kebab-keywords (kebabify-keys-kw kebab-case-keys-tests)]
+    (let [kebab-keywords (map-keys/kebabify-keys-kw kebab-case-keys-tests)]
       (is (= {:FOO-BAR {:nested {:nested-2 "foo"}}
               :not-so-nested "wow"
               :strings-work "working"
@@ -109,4 +109,4 @@
             [{:working_key 20}
              {:another_working_key 10}]
             :values_are_safe "je-suis-safe"}
-           (snakeify-keys-kw snake-case-keys-tests)))))
+           (map-keys/snakeify-keys-kw snake-case-keys-tests)))))

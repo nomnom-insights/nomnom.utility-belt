@@ -4,8 +4,9 @@
     [utility-belt.time :as time]))
 
 
-(defmacro time+ [tag body]
+(defmacro time+
   "Similar to `time` macro, but prints before/after markers and associated tag"
+  [tag body]
   `(let [state# (atom nil)]
      (printf "[%s]:start %s\n"  ~tag (time/now))
      (printf "[%s] %s" ~tag (with-out-str

@@ -1,7 +1,7 @@
 (ns utility-belt.lifecycle-test
   (:require [utility-belt.lifecycle :as lc]
             [clojure.java.io :as io]
-            [clojure.test :refer :all]))
+            [clojure.test :refer [deftest is testing]]))
 
 (def test-file (io/file "/tmp/ut-test-file"))
 
