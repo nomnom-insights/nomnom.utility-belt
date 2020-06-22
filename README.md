@@ -21,6 +21,8 @@ Currently it has:
 - `utlity-belt.component` - small utils which make working with Stuart Sierra's Component a bit easier
 - `utility-belt.map-keys` - easy transformations of map keys between kebab and snake case
 - `utility-belt.lifecycle` - helpers to manage Clojure application lifecycle (registering shutdown hooks etc)
+- `utility-belt.debug` - helpers for debugging code, mostly locally
+
 
 ## nREPL component
 
