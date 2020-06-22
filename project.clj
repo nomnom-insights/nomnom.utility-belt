@@ -5,12 +5,12 @@
                                    :username :env/clojars_username
                                    :password :env/clojars_password}}
   :dependencies [[org.clojure/clojure "1.10.1"]
-                 [nrepl "0.6.0"]]
+                 [nrepl "0.7.0"]]
 
   :plugins [[lein-cloverage "1.0.13" :exclusions [org.clojure/clojure]]]
   :profiles {:dev
-             {:dependencies [[cheshire "5.9.0"]
-                             [com.stuartsierra/component "0.4.0"]
-                             [org.clojure/tools.logging "0.5.0"]
-                             [org.clojure/java.jdbc "0.7.11"] ;; TODO - remove this once, nomnom. utility-belt.sql is stable
+             {:dependencies [[cheshire "5.10.0"]
+                             [com.stuartsierra/component "1.0.0"]
+                             [org.clojure/tools.logging "1.1.0"]
+                             [ch.qos.logback/logback-classic "1.2.3"]
                              [clj-time "0.15.2"]]}})
