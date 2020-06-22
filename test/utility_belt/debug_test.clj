@@ -1,8 +1,9 @@
 (ns utility-belt.debug-test
   (:require
-    [clojure.test :refer [deftest is testing]]
-    [utility-belt.debug :as debug]
     [clojure.string :as str]
+    [clojure.test :refer [deftest is testing]]
+    [clojure.tools.logging.test :as log.test]
+    [utility-belt.debug :as debug]
     [utility-belt.time]))
 
 
@@ -16,11 +17,18 @@
              (debug/time+ :test (slow-fun))))
 
       (let [out (str/split-lines
-                 (with-out-str
-                  (debug/time+ :test (slow-fun))))]
+                  (with-out-str
+                    (debug/time+ :test (slow-fun))))]
         (is (= "[:test]:start IT IS NOW" (first out)))
         (is (= "[:test]:end IT IS NOW" (last out)))
         (is (true?
-             (not
-              (nil?
-                (re-find #".+:test.+Elapsed time.+" (second out))))))))))
+              (not
+                (nil?
+                  (re-find #".+:test.+Elapsed time.+" (second out))))))))
+    (testing "log-time"
+      (is (= :fun-fun-fun
+             (debug/log-time :test (slow-fun))))
+      (log.test/with-log
+        (debug/log-time :test (slow-fun))
+        (log.test/logged? *ns* :debug "tag=:test start")
+        (log.test/logged? *ns* :debug "tag=:test end")))))
