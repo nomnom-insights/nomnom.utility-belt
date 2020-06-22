@@ -10,5 +10,7 @@
     (io/delete-file test-file  :silently true)
     (lc/register-shutdown-hook :passing-test #(spit test-file "hi"))
     (lc/install-shutdown-hooks!)
-    (is true) ;; so that linter stops complaining
-    ))
+    ;; so that linter stops complaining - actual test happens
+    ;; outside of the test run and we assert the contents of the test file
+    ;; in a 2nd step, which runs in CI
+    (is true)))
