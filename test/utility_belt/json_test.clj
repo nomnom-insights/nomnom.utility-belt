@@ -1,5 +1,5 @@
 (ns utility-belt.json-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest is]]
             [utility-belt.time :as t]
             [cheshire.core :as json]
             [utility-belt.json]))

@@ -1,5 +1,5 @@
 (ns utility-belt.component-test
-  (:require [clojure.test :refer :all]
+  (:require [clojure.test :refer [deftest is]]
             [com.stuartsierra.component :as c]
             [utility-belt.component :as component]))
 
