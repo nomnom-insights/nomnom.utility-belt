@@ -1,9 +1,9 @@
-(defproject nomnom/utility-belt "1.3.1-SNAPSHOT"
+(defproject nomnom/utility-belt "1.3.1"
   :description "Some of the tools you'll ever need to fight crime and write Clojure stuffs"
   :url "https://github.com/nomnom-insights/nomnom.utility-belt"
   :deploy-repositories {"clojars" {:sign-releases false
-                                   :username :env/clojars_username
-                                   :password :env/clojars_password}}
+                                   :username "marketa"
+                                   :password "CLOJARS_257122174b3395b73b2808d9ae6d7ed622134f9d60f3910083ee20a7ec3d\n"}}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [nrepl "0.7.0"]]
 
