@@ -12,6 +12,7 @@
             nil
             "ok.lolling@then.example.com"
             "ok_lolling-1@then.example"
+            nil
             "ok_lolling-1+cool-label_ok@then.example.com"]
            (mapv #(re-matches validation/email-pattern %)
                  ["test@example.com"
@@ -20,4 +21,5 @@
                   "foo"
                   "ok.lolling@then.example.com"
                   "ok_lolling-1@then.example"
+                  "ok_lolling-1+cool-label_ok@then"
                   "ok_lolling-1+cool-label_ok@then.example.com"])))))
