@@ -15,5 +15,5 @@
                              [com.stuartsierra/component "1.0.0"]
                              [org.clojure/tools.logging "1.1.0"]
                              [ch.qos.logback/logback-classic "1.2.7"]
-                             [org.clojure/java.jdbc "0.7.12"] ;; used for time coercions
+                             [org.clojure/java.jdbc "0.7.12"] ; used for time coercions
                              [clj-time "0.15.2"]]}})

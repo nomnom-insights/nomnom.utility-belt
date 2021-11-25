@@ -13,9 +13,14 @@
          (component/deps [:a :b {:c :f} :d]))))
 
 
-(defrecord Fake [dep-a dep-b dep-d]
+(defrecord Fake
+  [dep-a dep-b dep-d]
+
   c/Lifecycle
+
   (start [this] this)
+
+
   (stop [this] this))
 
 
@@ -24,7 +29,7 @@
               {:test (component/using+
                        (->Fake nil nil nil)
                        [:a :b {:d-alias :d}])
-              ;; fake components
+               ;; fake components
                :a (fn [] :dep-a)
                :b (fn [] :dep-b)
                :d (fn [] :dep-d-as-alias)})

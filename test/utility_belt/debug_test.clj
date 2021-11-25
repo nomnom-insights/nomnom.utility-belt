@@ -7,7 +7,9 @@
     [utility-belt.time]))
 
 
-(defn slow-fun [] (Thread/sleep 140) :fun-fun-fun)
+(defn slow-fun
+  []
+  (Thread/sleep 140) :fun-fun-fun)
 
 
 (deftest time-debugging

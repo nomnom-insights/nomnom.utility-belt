@@ -4,16 +4,20 @@
     [clojure.walk]))
 
 
-(defn- change-char [k from to]
+(defn- change-char
+  [k from to]
   (-> k name (str/replace from to)))
 
 
-(defn to-kebab-case [k]
+(defn to-kebab-case
+  [k]
   (change-char k \_ \-))
 
 
-(defn to-snake-case [k]
+(defn to-snake-case
+  [k]
   (change-char k \- \_))
+
 
 ;; Adapted from https://github.com/clojure/clojure/blob/b8c78ebf79b6a996f349dd112aaed658c132735d/src/clj/clojure/walk.clj#L102
 (defn convert-keys
@@ -40,15 +44,13 @@
    (convert-keys (comp post-fn to-snake-case) m)))
 
 
-(defn
-  kebabify-keys-kw
+(defn kebabify-keys-kw
   "Like kebabify-keys but keys end up being keywords"
   [m]
   (kebabify-keys m keyword))
 
 
-(defn
-  snakeify-keys-kw
+(defn snakeify-keys-kw
   "Like snakeify-keys but keys end up being keywords"
   [m]
   (snakeify-keys m keyword))

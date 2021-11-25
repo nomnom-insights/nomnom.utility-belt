@@ -5,12 +5,19 @@
     [nrepl.server :refer [start-server stop-server]]))
 
 
-(defrecord ReplServer [port bind-to server]
+(defrecord ReplServer
+  [port bind-to server]
+
   component/Lifecycle
-  (start [this]
+
+  (start
+    [this]
     (log/infof "nrepl-server=start port=%s" port)
     (assoc this :server (start-server :port port :bind bind-to)))
-  (stop [this]
+
+
+  (stop
+    [this]
     (if (:server this)
       (do
         (log/warn "nrepl-server=stop")
