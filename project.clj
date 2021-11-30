@@ -1,4 +1,4 @@
-(defproject nomnom/utility-belt "1.3.1"
+(defproject nomnom/utility-belt "1.3.2"
   :description "Some of the tools you'll ever need to fight crime and write Clojure stuffs"
   :url "https://github.com/nomnom-insights/nomnom.utility-belt"
   :deploy-repositories {"clojars" {:sign-releases false
