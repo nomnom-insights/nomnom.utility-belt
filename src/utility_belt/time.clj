@@ -10,15 +10,18 @@
       DateTimeZone)))
 
 
-(defn force-utc! []
+(defn force-utc!
+  []
   (TimeZone/setDefault (TimeZone/getTimeZone "UTC")))
 
 
-(defn now []
+(defn now
+  []
   (DateTime.))
 
 
-(defn to-date [date]
+(defn to-date
+  [date]
   (DateTime. date))
 
 
@@ -61,7 +64,8 @@
   (to-date 0))
 
 
-(defn ->date-time [s]
+(defn ->date-time
+  [s]
   (cond
     (instance? DateTime s) s
     (string? s) (coerce/to-date-time s)))

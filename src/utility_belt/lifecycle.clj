@@ -14,10 +14,12 @@
   (swap! hooks assoc name hook-fn))
 
 
-(defn run-registered-hooks []
+(defn run-registered-hooks
+  []
   (mapv (fn [[name hook-fn]]
           (try
-            (log/infof "shutdown-hook=%s" name (hook-fn))
+            (log/infof "shutdown-hook=%s" name)
+            (hook-fn)
             (catch Exception err
               (log/errorf err "shutdown hook=%s failed" name))))
         @hooks))

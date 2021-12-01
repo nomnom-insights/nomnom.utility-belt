@@ -10,7 +10,8 @@
   (UUID/randomUUID))
 
 
-(defn uuid-str []
+(defn uuid-str
+  []
   (str (UUID/randomUUID)))
 
 
