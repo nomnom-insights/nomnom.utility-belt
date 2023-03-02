@@ -1,21 +1,24 @@
 (ns utility-belt.id
-  "ID generation of any sort"
+  "ID generation of any sort
+   Deprecated: this namespace is being deprecated from v1.3.3
+
+   Replacements for the main functions are now available in clojure's core:
+   utility-belt.id/uuid => clojure.core/random-uuid
+   utility-belt.id/str->uuid => clojure.core/parse-uuid"
   (:import
-    (java.util
-      UUID)))
+    (java.util UUID)))
 
-
-(defn uuid
+(defn ^{:deprecated "1.3.3"} uuid
   []
   (UUID/randomUUID))
 
 
-(defn uuid-str
+(defn ^{:Deprecated "1.3.3"} uuid-str
   []
   (str (UUID/randomUUID)))
 
 
-(defn str->uuid
+(defn ^{:deprecated "1.3.3"} str->uuid
   "Convert string uuid to uuid."
   [uuid-str]
   (if (string? uuid-str)
@@ -23,6 +26,6 @@
     uuid-str))
 
 
-(defn uuid->str
+(defn ^{:deprecated "1.3.3"} uuid->str
   [uuid]
   (str uuid))
