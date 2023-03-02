@@ -15,6 +15,7 @@ a limited set of dependencies.
 Currently it has:
 
 - `utility-belt.id` - various functions for working with UUIDs
+- `utility-belt.base64` - encoding/decoding of base64 into bytes/strings
 - `utility-belt.json` - sets up automatic conversions of Joda time objects to/from JSON, you need to pull in `clj-time` and `cheshire` if you need to use those
 - `utility-belt.time` - common functions for date and time calculations, you need to pull in `clj-time` if you need to use those
 - `utilit-belt.conv` - type conversions (string to int, int to string, etc)
@@ -22,6 +23,8 @@ Currently it has:
 - `utility-belt.map-keys` - easy transformations of map keys between kebab and snake case
 - `utility-belt.lifecycle` - helpers to manage Clojure application lifecycle (registering shutdown hooks etc)
 - `utility-belt.debug` - helpers for debugging code, mostly locally
+- `utility-belt.validation` - helpers for data validation
+- `utility-belt.sanitization` - helpers for data sanitization
 
 
 ## nREPL component
